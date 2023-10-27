@@ -1,12 +1,8 @@
 import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-
-
 import HomePage from './components/pages/HomePage';
 import Favoritos from './components/pages/Favoritos';
-
-
 import { MyContext } from './components/context/MyContext';
 import { Routes, Route } from 'react-router-dom';
 import ReadAPI from './components/ReadAPI';
@@ -16,11 +12,11 @@ import ReadAPI from './components/ReadAPI';
 function App() {
 
   const [fotos, setFotos] = useState([])
-  const [favoritos, setFavoritos] = useState([])
+
   console.log(fotos)
   return (
     <>
-      <MyContext.Provider value={{ fotos, setFotos, favoritos, setFavoritos }}>
+      <MyContext.Provider value={{ fotos, setFotos }}>
         <ReadAPI />
         <Routes>
           <Route path='/' element={<HomePage />} />
